@@ -15,11 +15,19 @@ public class Runner {
         Course course1 = new Course("SoftWare", "HND");
         DBHelper.save(course1);
 
+
+
         Student student1 = new Student("Iona", 27, 2386, course1);
         Student student2 = new Student("Shaun", 27, 2376, course1);
 
         DBHelper.save(student1);
         DBHelper.save(student2);
+
+        Mentor mentor1 = new Mentor("Tony", student1);
+        Mentor mentor2 = new Mentor("John", student2);
+
+        DBHelper.save(mentor1);
+        DBHelper.save(mentor2);
 
         Lesson lesson1 = new Lesson("Pizza Shop", 5, course1);
         Lesson lesson2 = new Lesson("Kareoke", 3, course1);
@@ -27,11 +35,6 @@ public class Runner {
         DBHelper.save(lesson1);
         DBHelper.save(lesson2);
 
-        Mentor mentor1 = new Mentor("Tony");
-        Mentor mentor2 = new Mentor("John");
-
-        DBHelper.save(mentor1);
-        DBHelper.save(mentor2);
 
         List<Course> course = DBHelper.getAll(Course.class);
 
@@ -42,6 +45,8 @@ public class Runner {
         Course getCourseOfStudent = DBStudent.getCourseFromStudent(student1);
 
         Course getCourseOfLesson = DBLesson.getCourseFromLesson(lesson1);
+
+        Mentor getMentorForStudent = DBStudent.getMentorForStudent(student1);
 
     }
 

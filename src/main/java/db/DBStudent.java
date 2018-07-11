@@ -1,6 +1,7 @@
 package db;
 
 import models.Course;
+import models.Mentor;
 import models.Student;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -28,6 +29,24 @@ public class DBStudent {
             session.close();
         }
         return course;
+    }
+
+    public static Mentor getMentorForStudent(Student student){
+        session = HibernateUtil.getSessionFactory().openSession();
+        Mentor mentor = null;
+
+        try{
+            Criteria cr = session.createCriteria(Mentor.class);
+            cr.add(Restrictions.eq("student", student));
+            mentor = (Mentor) cr.uniqueResult();
+        }
+        catch (HibernateException ex){
+            ex.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        return mentor;
     }
 
 }
