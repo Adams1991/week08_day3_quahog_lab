@@ -1,6 +1,7 @@
 package db;
 
 import models.Course;
+import models.Instructor;
 import models.Lesson;
 import models.Student;
 import org.hibernate.Criteria;
@@ -29,5 +30,24 @@ public class DBLesson {
             session.close();
         }
         return course;
+    }
+
+    public static Instructor getInstructorForLesson(Lesson lesson){
+        session = HibernateUtil.getSessionFactory().openSession();
+        Instructor instructor = null;
+
+        try{
+            Criteria cr = session.createCriteria(Instructor.class);
+            cr.createAlias("lessons", "lesson");
+            cr.add(Restrictions.eq("lesson.id", lesson.getId()));
+            instructor = (Instructor) cr.uniqueResult();
+        }
+        catch (HibernateException ex){
+            ex.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        return instructor;
     }
 }

@@ -24,6 +24,7 @@ public class Runner {
         Mentor mentor2 = new Mentor("John", student2);
 
         Instructor instructor1= new Instructor("Newton");
+        DBHelper.save(instructor1);
 
         DBHelper.save(mentor1);
         DBHelper.save(mentor2);
@@ -46,6 +47,8 @@ public class Runner {
         Course getCourseOfLesson = DBLesson.getCourseFromLesson(lesson1);
 
         Mentor getMentorForStudent = DBStudent.getMentorForStudent(student1);
+
+        Instructor getInstructorForLesson = DBLesson.getInstructorForLesson(lesson1);
 
     }
 
