@@ -1,4 +1,5 @@
 import db.DBHelper;
+import db.DBInstructor;
 import db.DBLesson;
 import db.DBStudent;
 import models.*;
@@ -49,6 +50,8 @@ public class Runner {
         Mentor getMentorForStudent = DBStudent.getMentorForStudent(student1);
 
         Instructor getInstructorForLesson = DBLesson.getInstructorForLesson(lesson1);
+
+        List<Lesson> getLessonsForInstructor = DBInstructor.getLessons(instructor1);
 
     }
 
