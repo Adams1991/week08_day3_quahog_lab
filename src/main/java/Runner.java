@@ -29,8 +29,8 @@ public class Runner {
         DBHelper.save(mentor1);
         DBHelper.save(mentor2);
 
-        Lesson lesson1 = new Lesson("Pizza Shop", 5, course1);
-        Lesson lesson2 = new Lesson("Kareoke", 3, course1);
+        Lesson lesson1 = new Lesson("Pizza Shop", 5, course1, instructor);
+        Lesson lesson2 = new Lesson("Kareoke", 3, course1, instructor);
 
         DBHelper.save(lesson1);
         DBHelper.save(lesson2);

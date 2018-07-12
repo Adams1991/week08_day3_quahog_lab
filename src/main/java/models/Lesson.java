@@ -10,11 +10,13 @@ public class Lesson {
     private  String title;
     private int classroom;
     private Course course;
+    private Instructor instructor;
 
-    public Lesson(String title, int classroom, Course course) {
+    public Lesson(String title, int classroom, Course course, Instructor instructor) {
         this.title = title;
         this.classroom = classroom;
         this.course = course;
+        this.instructor = instructor;
     }
 
     public Lesson() {
@@ -57,5 +59,13 @@ public class Lesson {
 
     public void setCourse(Course course) {
         this.course = course;
+    }
+
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
     }
 }
