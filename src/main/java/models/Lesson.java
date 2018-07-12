@@ -61,6 +61,8 @@ public class Lesson {
         this.course = course;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "instructor_id", nullable = false)
     public Instructor getInstructor() {
         return instructor;
     }

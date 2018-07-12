@@ -1,5 +1,7 @@
 package models;
 
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 public class Instructor {
@@ -8,7 +10,7 @@ public class Instructor {
     private List<Lesson> lessons;
 
 
-    public Instructor(String name, List<Lesson> lessons) {
+    public Instructor(String name) {
         this.name = name;
         this.lessons = lessons;
     }
@@ -24,6 +26,7 @@ public class Instructor {
         this.name = name;
     }
 
+    @OneToMany(mappedBy = "instructor", fetch = FetchType.LAZY)
     public List<Lesson> getLessons() {
         return lessons;
     }
